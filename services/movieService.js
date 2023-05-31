@@ -34,8 +34,8 @@ router.get("/movies", async (req, res) => {
 // Get a movie by Id
 router.get("/movies/:id", async (req, res) => {
   try {
-    const movie = await Movie.findById(req.params.id);
-    if (!movie) {
+    const result = await Movie.findById(req.params.id);
+    if (!result) {
       return res.status(404).json({ success: false, error: "Movie not found" });
     }
 
