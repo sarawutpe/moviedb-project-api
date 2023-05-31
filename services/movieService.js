@@ -121,13 +121,13 @@ router.put("/movies/:id", async (req, res) => {
 // Remove a movie by Id
 router.delete("/movies/:id", async (req, res) => {
   try {
-    const movie = await Movie.findByIdAndRemove(req.params.id);
-    if (!movie) {
+    const result = await Movie.findByIdAndRemove(req.params.id);
+    if (!result) {
       return res.status(404).json({ success: false, error: "Movie not found" });
     }
 
     // Response status 200
-    res.json({ success: true, data: movie });
+    res.json({ success: true, data: result });
   } catch (error) {
     res.status(400).json({ success: false, error: error.message });
   }
