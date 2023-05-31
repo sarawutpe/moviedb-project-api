@@ -108,10 +108,10 @@ router.put("/movies/:id", async (req, res) => {
         posterPath: newImageName || currentPosterPath,
       };
 
-      const updatedMovie = await Movie.findByIdAndUpdate(req.params.id, newMovie, { new: true });
+      const result = await Movie.findByIdAndUpdate(req.params.id, newMovie, { new: true });
 
       // Response status 200
-      res.json({ success: true, data: updatedMovie });
+      res.json({ success: true, data: result });
     });
   } catch (error) {
     res.status(400).json({ success: false, error: error.message });
