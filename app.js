@@ -12,7 +12,7 @@ app.use(express.json());
 // Config x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }));
 // Config static folder
-app.use(express.static(__dirname + "/uploads"));
+app.use("/uploads", express.static("uploads"));
 
 // Api routes
 app.get("/api/test", async (req, res) => {
