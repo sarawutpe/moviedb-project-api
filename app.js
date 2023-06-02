@@ -6,8 +6,7 @@ const app = express();
 connectToDatabase();
 
 // Enable CORS
-// app.use(cors());
-
+app.use(cors());
 // Middleware to parse JSON requests
 app.use(express.json());
 // Config x-www-form-urlencoded
