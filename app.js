@@ -1,6 +1,7 @@
 const express = require("express");
 const connectToDatabase = require("./database");
 const app = express();
+const cors = require("cors");
 
 // Connect to mongodb
 connectToDatabase();

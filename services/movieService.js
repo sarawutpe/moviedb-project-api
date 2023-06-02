@@ -19,9 +19,9 @@ router.get("/movies", async (req, res) => {
     let result;
 
     if (q) {
-      result = await Movie.find({ title: { $regex: q, $options: "i" } });
+      result = await Movie.find({ title: { $regex: q, $options: "i" } }).sort({ _id: -1 });
     } else {
-      result = await Movie.find();
+      result = await Movie.find().sort({ _id: -1 });
     }
 
     // Response status 200
@@ -40,7 +40,7 @@ router.get("/movies/:id", async (req, res) => {
     }
 
     // Response status 200
-    res.json({ success: true, data: movie });
+    res.json({ success: true, data: result });
   } catch (error) {
     res.status(400).json({ success: false, error: error.message });
   }
